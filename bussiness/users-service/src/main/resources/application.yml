@@ -13,3 +13,8 @@ spring:
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL8Dialect
+spring-doc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger.html
