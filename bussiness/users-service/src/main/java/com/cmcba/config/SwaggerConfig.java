@@ -20,7 +20,7 @@ public class SwaggerConfig {
     @Bean
     public GroupedOpenApi openApi(){
         return GroupedOpenApi.builder()
-                .group("MCBA")
+                .group("CMCBA")
                 .packagesToScan("com.cmcba")
                 .build();
     }
@@ -29,7 +29,7 @@ public class SwaggerConfig {
     public OpenAPI springOpenApi(){
         String version = "1.0";
         return new OpenAPI()
-                .info(new Info().title("MCBA - modulo clientes")
+                .info(new Info().title("CMCBA - modulo clientes")
                         .description("Modulo de clientes y autenticacion")
                         .contact(new Contact().name("caito").email("caitocd@gmail.com"))
                         .version(version));
