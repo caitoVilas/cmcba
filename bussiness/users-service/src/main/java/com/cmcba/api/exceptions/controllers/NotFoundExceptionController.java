@@ -1,8 +1,8 @@
 package com.cmcba.api.exceptions.controllers;
 
+import com.cmcba.api.exceptions.customs.NotFoundException;
 import com.cmcba.api.models.responses.ErrorResponse;
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -19,7 +19,7 @@ import java.time.LocalDateTime;
 @RestControllerAdvice
 @ResponseStatus(HttpStatus.NOT_FOUND)
 public class NotFoundExceptionController {
-    @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
+    @ExceptionHandler(NotFoundException.class)
     protected ResponseEntity<ErrorResponse> notFounExceptionHandler(Exception e, HttpServletRequest request){
         var response = ErrorResponse.builder()
                 .code(HttpStatus.NOT_FOUND.value())
