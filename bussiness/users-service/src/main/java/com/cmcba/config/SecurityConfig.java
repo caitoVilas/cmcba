@@ -39,8 +39,10 @@ public class SecurityConfig {
         http
                 .csrf(config -> config.disable())
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers("/api/v1/blog/auth/**").permitAll();
                     auth.requestMatchers("/swagger-ui/**", "/.well-known/**, ", "/v3/api-docs/**").permitAll();
+                    auth.requestMatchers("/api/v1/cmcba/auth/**").permitAll();
+                    //auth.requestMatchers("/api/v1/cmcba/users/**").hasAnyRole(new String[]{"ADMIN", "USER"});
+                    auth.requestMatchers("/api/v1/cmcba/users/**").authenticated();
                     auth.anyRequest().authenticated();
                 })
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

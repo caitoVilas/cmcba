@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
         log.info("---> validando entradas...");
         this.validateUser(request);
         log.info("---> guardando usurio...");
-        var role = roleRepository.findByRoleName(RoleName.ROLE_ADMIN);
+        var role = roleRepository.findByRoleName(RoleName.ROLE_USER);
         Set<Role> roles = new HashSet<>();
         roles.add(role);
         var user = UserApplication.builder()
@@ -67,8 +67,8 @@ public class UserServiceImpl implements UserService {
         log.info("---> inicio servicio buscar usuario por id");
         log.info("---> buscando usuario con id {}", id);
         var user = userRepository.findById(id).orElseThrow(()-> {
-            log.error("ERROR: ".concat(UserConstants.U_ID_NOT_FOUND).concat(id.toString()));
-            return new  NotFoundException(UserConstants.U_ID_NOT_FOUND.concat(id.toString()));
+            log.error("ERROR : ".concat(UserConstants.U_ID_NOT_FOUND).concat(id.toString()));
+            return new NotFoundException(UserConstants.U_ID_NOT_FOUND.concat(id.toString()));
         });
         log.info("---> finalizado servicio alta de usuario");
         return UserMap.mapToDto(user);
