@@ -1,0 +1,20 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: supplier-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/cmcba_db
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+spring-doc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    path: /swagger.html
